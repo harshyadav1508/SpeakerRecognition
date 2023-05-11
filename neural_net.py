@@ -44,7 +44,7 @@ class LstmSpeakerEncoder(BaseSpeakerEncoder):
     def forward(self, x):
         D = 2 if myconfig.BI_LSTM else 1
         h0 = torch.zeros(
-            D * myconfig.LSTM_NUM_LAYERS, x.shape[0],  myconfig.LSTM_HIDDEN_SIZE
+            D * myconfig.LSTM_NUM_LAYERS, x.shape[0], myconfig.LSTM_HIDDEN_SIZE
         ).to(myconfig.DEVICE)
         c0 = torch.zeros(
             D * myconfig.LSTM_NUM_LAYERS, x.shape[0], myconfig.LSTM_HIDDEN_SIZE
@@ -167,8 +167,7 @@ def run_training():
             myconfig.TRAIN_DATA_CSV)
         print("Training data:", myconfig.TRAIN_DATA_CSV)
     else:
-        spk_to_utts = dataset.get_librispeech_spk_to_utts(
-            myconfig.TRAIN_DATA_DIR)
+        spk_to_utts = dataset.get_librispeech_spk_to_utts(myconfig.TRAIN_DATA_DIR)
         print("Training data:", myconfig.TRAIN_DATA_DIR)
     with multiprocessing.Pool(myconfig.NUM_PROCESSES) as pool:
         losses = train_network(spk_to_utts,

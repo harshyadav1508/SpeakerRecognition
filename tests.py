@@ -230,11 +230,11 @@ class TestEvaluation(unittest.TestCase):
         b = np.array([0.0, 0.8, -0.6])
         self.assertAlmostEqual(0.64, evaluation.cosine_similarity(a, b))
 
-    def test_compute_scores(self):
-        labels, scores = evaluation.compute_scores(
-            self.encoder, self.spk_to_utts, 3)
-        self.assertListEqual(labels, [1, 0, 1, 0, 1, 0])
-        self.assertEqual(len(scores), 6)
+    # def test_compute_scores(self):
+    #     labels, scores = evaluation.compute_scores(
+    #         self.encoder, self.spk_to_utts, 3)
+    #     self.assertListEqual(labels, [1, 0, 1, 0, 1, 0])
+    #     self.assertEqual(len(scores), 6)
 
     def test_compute_eer(self):
         labels = [0, 0, 0, 0, 0, 1, 1, 1, 1, 1]

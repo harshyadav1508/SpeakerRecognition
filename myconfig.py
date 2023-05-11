@@ -6,10 +6,10 @@ import multiprocessing
 # Paths of downloaded LibriSpeech datasets.
 TRAIN_DATA_DIR = os.path.join(
     os.path.expanduser("~"),
-    "GitHub/SpeakerRecognitionFromScratch/data/LibriSpeech/train-clean-100")
+    r"C:\Users\Harsh Yadav\PycharmProjects\dataset\LibriSpeech\train-clean-100")
 TEST_DATA_DIR = os.path.join(
     os.path.expanduser("~"),
-    "GitHub/SpeakerRecognitionFromScratch/data/LibriSpeech/test-clean")
+    r"C:\Users\Harsh Yadav\PycharmProjects\dataset\LibriSpeech-test\test-clean")
 
 # Paths of CSV files where the first column is speaker, and the second column is
 # utterance file.
@@ -21,7 +21,8 @@ TEST_DATA_CSV = ""
 # Path of save model.
 SAVED_MODEL_PATH = os.path.join(
     os.path.expanduser("~"),
-    "GitHub/SpeakerRecognitionFromScratch/saved_model/saved_model.pt")
+    r"C:\Users\Harsh Yadav\PycharmProjects\SpeakerRecognitionFromScratch\saved_model\pretrained\saved_model.bilstm.mean.all.specaug.gpu100000.pt")
+    # r"C:\Users\Harsh Yadav\PycharmProjects\SpeakerRecognitionFromScratch\saved_model\trainedLocalLappy\saved_model.pt")
 
 # Number of MFCCs for librosa.feature.mfcc.
 N_MFCC = 40
@@ -64,10 +65,10 @@ BATCH_SIZE = 8
 LEARNING_RATE = 0.0001
 
 # Save a model to disk every these many steps.
-SAVE_MODEL_FREQUENCY = 10000
+SAVE_MODEL_FREQUENCY = 5
 
 # Number of steps to train.
-TRAINING_STEPS = 100000
+TRAINING_STEPS = 100
 
 # Whether we are going to train with SpecAugment.
 SPECAUG_TRAINING = False
@@ -87,7 +88,7 @@ SLIDING_WINDOW_STEP = 50  # 1.6 seconds
 # Number of triplets to evaluate for computing Equal Error Rate (EER).
 # Both the number of positive trials and number of negative trials will be
 # equal to this number.
-NUM_EVAL_TRIPLETS = 10000
+NUM_EVAL_TRIPLETS = 100
 
 # Step of threshold sweeping for computing Equal Error Rate (EER).
 EVAL_THRESHOLD_STEP = 0.001
@@ -95,5 +96,5 @@ EVAL_THRESHOLD_STEP = 0.001
 # Number of processes for multi-processing.
 NUM_PROCESSES = min(multiprocessing.cpu_count(), BATCH_SIZE)
 
-# Wehther to use GPU or CPU.
+# Whether to use GPU or CPU.
 DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")

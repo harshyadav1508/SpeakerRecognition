@@ -3,13 +3,21 @@ import os
 import glob
 import csv
 
-
+"""
+input_file = train dataset folder
+output_file = a dict which contain key as """
 def get_librispeech_spk_to_utts(data_dir):
     """Get the dict from speaker to list of utterances for LibriSpeech."""
+
+    """
+    Returns a list of utterexample of flac file: r"C:\Users\Harsh Yadav\PycharmProjects\dataset\LibriSpeech\train-clean-100\19\198\19-198-0000.flac"
+    the two * * in the join function indicates the folder inside train-clean-100 i.e. * -> 19 and * -> 198
+    And glob.glob() short for global is used to search for files that match a specific file pattern or name
+    """
     flac_files = glob.glob(os.path.join(data_dir, "*", "*", "*.flac"))
     spk_to_utts = dict()
     for flac_file in flac_files:
-        basename = os.path.basename(flac_file)
+        basename = os.path.basename(flac_file)  # returns the file name, in our example it will return 19-198-0000.flac
         split_name = basename.split("-")
         spk = split_name[0]
         if spk not in spk_to_utts:

@@ -68,7 +68,7 @@ LEARNING_RATE = 0.0001
 SAVE_MODEL_FREQUENCY = 5
 
 # Number of steps to train.
-TRAINING_STEPS = 100
+TRAINING_STEPS = 10
 
 # Whether we are going to train with SpecAugment.
 SPECAUG_TRAINING = False
